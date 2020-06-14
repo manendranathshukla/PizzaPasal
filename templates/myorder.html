@@ -1,0 +1,25 @@
+
+{% extends 'base.html' %}
+{% block content %}
+<nav class="navbar navbar-light bg-light" >
+    <a class="navbar-brand">Welcome {{ username }}</a>
+    
+    <a class="btn btn-info" style="margin-left: 1530px;"href="#">CheckOut</a>
+    <a href="/userlogout/" class="btn btn-danger">Logout</a>
+</nav>
+
+<h2 style="text-align: center;">My Order List</h2>
+<hr>
+
+
+{% for order in orders %}
+<div style="margin: 40px;" class="alert alert-warning" role="alert">
+    <p>{{ order.username }}</p>
+    <p>{{ order.phone }}</p>
+    <p>{{ order.address }}</p>
+    <p>{{ order.ordereditems }}</p>
+    <p>Order Status : {{ order.status }}</p>
+    
+</div>
+{% endfor %}
+{% endblock %}

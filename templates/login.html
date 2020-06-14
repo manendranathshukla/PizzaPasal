@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+
+
+<div class="container-fluid" style="position: relative;height:900px;background-size:cover;background-image: url({% static 'img/homepagepic.jpg' %});">
+    <div style="width: 400px; padding:20px; position: absolute;top:40%;right: 37%;height: 275px;background-color: orange;" class="container">
+    <h1 style="text-align: center;color: white;">Login here! </h1>
+    <form method="post" action="/loginauthenticate/">
+        {% csrf_token %}
+        <input style="margin-bottom: 10px" class="form-control" placeholder="username" name="username" type="text">
+        <input style="margin-bottom: 10px" class="form-control" placeholder="password" name="password" type="password">
+        <input style="display: block;margin: auto;margin-top: 20px;"  class="btn btn-success" type="submit" name="login" value="Login">
+    </form>
+    {% for message in messages %}
+
+    <p style="text-align: center;">{{ message }}</p>
+    {% endfor %}
+    </div>
+</div>
+
+
+
+
+{% endblock %}

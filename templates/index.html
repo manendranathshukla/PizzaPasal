@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<nav  class ="navbar navbar-light" style=" width:100% ;background-color: #e3f2fd;" >
+    <a class="navbar-brand">PizzaPasal</a>
+    <a href="/userlogin/" class="btn btn-danger">Login</a>
+    
+</nav>
+
+{% for message in messages %}
+    <p style='text-align:center;'>{{ message }} </p>
+{% endfor %}
+
+<div class="container-fluid" style="position: relative;height:900px;background-size:cover;background-image: url({% static 'img/homepagepic.jpg' %});">
+    <div style="width: 500px; padding:20px; position: absolute;top: 300px;right: 20px;height: 350px;background-color: orange;" class="container">
+    <h1 style="text-align: center;color: white;">Sign Up! </h1>
+    <h4 style="color: white;">Create a account </h4>
+    <hr>
+    <form method="post" action="/usersignup/">
+        {% csrf_token %}
+        <input style="margin-bottom: 10px" class="form-control" placeholder="username" name="username" type="text">
+        <input style="margin-bottom: 10px" class="form-control" placeholder="password" name="password" type="password">
+        <input style="margin-bottom: 10px" class="form-control" placeholder="phoneno" name="phone" type="text">
+        <input style="display: block;margin: auto;margin-top: 20px;"  class="btn btn-success" type="submit" name="Register">
+    </form>
+
+    </div>
+</div>
+
+
+
+
+{% endblock %}
